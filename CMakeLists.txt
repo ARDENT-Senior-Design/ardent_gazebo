@@ -15,11 +15,12 @@ find_package(catkin REQUIRED COMPONENTS
 )
 
 
-find_package(Boost REQUIRED COMPONENTS system)
+find_package(Boost REQUIRED COMPONENTS system thread)
 find_package(gazebo REQUIRED)
 
 include_directories(
   ${catkin_INCLUDE_DIRS}
+  ${gazebo_INCLUDE_DIRS}
 )
 
 catkin_package(
@@ -29,3 +30,9 @@ catkin_package(
   DEPENDS 
     gazebo
 )
+
+
+add_executable(traj_control_test scripts/traj_control_test.cpp)
+ target_link_libraries(
+    traj_control_test ${catkin_LIBRARIES} ${Boost_LIBARIES}
+ )
