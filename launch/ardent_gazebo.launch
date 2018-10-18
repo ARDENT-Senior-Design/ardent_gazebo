@@ -5,7 +5,7 @@
     </include>
 
     <param name="robot_description" textfile="$(find ardent_description)/urdf/ardent.urdf"/>
-    <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-file $(find ardent_description)/urdf/ardent.urdf -urdf -z 0.25 -model ardent"/>
-
-    <!-- <include file="$(find ardent_control)/launch/ardent_control.launch"/> -->
+    <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-file $(find ardent_description)/urdf/ardent.urdf -urdf -z 0.26 -model ardent"/>
+   
+    <include file="$(find ardent_controllers)/launch/controller.launch"/> 
 </launch>
