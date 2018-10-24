@@ -12,6 +12,7 @@ find_package(catkin REQUIRED COMPONENTS
   geometry_msgs
   sensor_msgs
   std_msgs
+  gazebo
 )
 
 
@@ -20,8 +21,9 @@ find_package(gazebo REQUIRED)
 
 include_directories(
   ${catkin_INCLUDE_DIRS}
-  ${gazebo_INCLUDE_DIRS}
+  ${GAZEBO_INCLUDE_DIRS}
 )
+link_directories(${GAZEBO_LIBRARY_DIRS})
 
 catkin_package(
   CATKIN_DEPENDS 
@@ -31,8 +33,5 @@ catkin_package(
     gazebo
 )
 
-
-add_executable(traj_control_test scripts/traj_control_test.cpp)
- target_link_libraries(
-    traj_control_test ${catkin_LIBRARIES} ${Boost_LIBARIES}
- )
+ #target_link_libraries(
+# )
