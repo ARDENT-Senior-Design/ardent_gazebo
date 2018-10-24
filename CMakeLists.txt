@@ -33,5 +33,5 @@ catkin_package(
     gazebo
 )
 
- #target_link_libraries(
-# )
+add_executable(walking_test scripts/walking_test.cpp)
+target_link_libraries(walking_test ${catkin_LIBRARIES})
